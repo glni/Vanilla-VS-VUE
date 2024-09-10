@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="utf-8">
+    
+    <title>Counter med VUE JS (Composition)</title>
+    
+    <meta name="robots" content="All">
+    <meta name="author" content="Udgiver">
+    <meta name="copyright" content="Information om copyright">
+    
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+
+<div id="app" class="container text-center mt-5">
+    <h1 class="mb-4">Counter med VUE JS (Composition)</h1>
+    <div class="d-flex justify-content-center align-items-center gap-3">
+        <button @click="count--" class="btn btn-danger">-</button>
+        <span class="fs-4 fw-bold">{{ count }}</span>
+        <button @click="count++" class="btn btn-success">+</button>
+    </div>
+</div>
+
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const { createApp, ref } = Vue; // Hent ref fra Vue Composition API
+    
+    createApp({
+        setup() {
+            // Definer reaktive variabler ved hjælp af ref
+            const count = ref(0);
+            
+            // Returner reaktive variabler og metoder
+            return {
+                count,
+            };
+        }
+    }).mount('#app');
+</script>
+</body>
+</html>
